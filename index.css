@@ -1,0 +1,115 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Sans 3', sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+    min-height: 100vh;
+}
+
+/* Structural Selectors */
+.container {
+    width: 980px;
+    border-inline: 1px solid darkgray;
+    margin: 0 auto;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    margin-top: 12px;
+}
+
+.post-card {
+    width: 100%;
+    border-block: 1.5px solid darkgray;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin: 20px 0;
+
+}
+
+.logo {
+    height: 120px;
+}
+
+.profile-img {
+    height: 90px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px;
+}
+
+.post-profile-img {
+    height: 100px;
+    clip-path: circle();
+    cursor: pointer;
+}
+
+.user {
+    display: flex;
+    gap: 23px;
+    align-items: center;
+    font-size: 2rem;
+    line-height: 2.25rem;
+}
+
+.txt {
+    text-align: left;
+}
+
+.menu-icon {
+    height: 60px;
+    cursor: pointer;
+}
+
+.post-img {
+    width: 100%;
+}
+
+.post-details {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 12px;
+    text-align: left;
+    font-size: 2rem;
+}
+
+.icons {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.like-icon,
+.comment-icon,
+.share-icon {
+    height: 54px;
+    transition: all ease 0.25s;
+}
+
+.like-icon:hover,
+.comment-icon:hover,
+.share-icon:hover {
+    cursor: pointer;
+    scale: 1.25;
+
+}
+
+.like-number, .username {
+    font-weight: 900;
+}
