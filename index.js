@@ -7,6 +7,7 @@ const posts = [
         post: "images/post-vangogh.jpg",
         comment: "just took a few mushrooms lol",
         isLiked: false,
+        isFollowing: false,
         likes: 21
     },
     {
@@ -17,6 +18,7 @@ const posts = [
         post: "images/post-courbet.jpg",
         comment: "i'm feelin a bit stressed tbh",
         isLiked: false,
+        isFollowing: false,
         likes: 4
     },
         {
@@ -27,6 +29,7 @@ const posts = [
         post: "images/post-ducreux.jpg",
         comment: "gm friends! which coin are YOU stacking up today?? post below and WAGMI!",
         isLiked: false,
+        isFollowing: false,
         likes: 152
     }
 ]
@@ -54,7 +57,11 @@ function renderUserInfo(info) {
     loc.textContent = info.location
 
     const menuDiv = document.createElement('div')
-    // menuDiv.classList.add('menu')
+    menuDiv.classList.add('menu')
+
+    const btn = document.createElement('button')
+    btn.textContent = "Follow"
+    btn.classList.add('follow-btn')
 
     const menuIcon = document.createElement('img')
     menuIcon.src = "/images/icons8_menu_vertical_2.svg"
@@ -69,12 +76,28 @@ function renderUserInfo(info) {
         textDiv
     )
 
-    menuDiv.append(menuIcon)
+    menuDiv.append(
+        btn,
+        menuIcon
+
+    )
 
     userInfoDiv.append(
         userDiv,
         menuDiv,
     )
+
+    btn.addEventListener('click', () => {
+        info.isFollowing = !info.isFollowing
+
+        if (info.isFollowing) {
+            btn.textContent = "Following"
+            btn.classList.add('following-btn')
+        } else {
+            btn.textContent = "Follow"
+            btn.classList.remove('following-btn')
+        }
+    })
 
     return userInfoDiv
 }
@@ -124,13 +147,31 @@ function renderPostDetails(detail) {
     const postMsg = document.createElement('p')
     postMsg.innerHTML = `<strong>${detail.username}</strong> ${detail.comment}`
 
+    const txtInputDiv = document.createElement('div')
+    txtInputDiv.classList.add('txt-input')
+
+    const txtInput = document.createElement('input')
+    txtInput.classList.add('input')
+
+    const sendIcon = document.createElement('img')
+    sendIcon.src = "/images/icons8_paper_plane.svg"
+    sendIcon.classList.add('send-icon')
+
     iconsDiv.append(
         likeIcon,
         commentIcon,
         shareIcon
     )
 
-    postMsgDiv.append(postMsg)
+    txtInputDiv.append(
+        txtInput,
+        sendIcon
+    )
+
+    postMsgDiv.append(
+        txtInputDiv,
+        postMsg
+    )
 
     postDetailsDiv.append(
         iconsDiv,
@@ -150,6 +191,18 @@ function renderPostDetails(detail) {
         }
 
         likesDiv.textContent = `${detail.likes} likes`
+    })
+
+    commentIcon.addEventListener('click', () => {
+        txtInputDiv.classList.toggle('is-flex')
+    })
+
+    txtInput.addEventListener('blur', () => {
+        txtInputDiv.classList.remove('is-flex')
+    })
+
+    sendIcon.addEventListener('click', () => {
+        txtInput.value = ""
     })
 
     return postDetailsDiv

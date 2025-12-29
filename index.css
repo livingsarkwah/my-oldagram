@@ -33,7 +33,7 @@ header {
 }
 
 footer {
-    margin: 20px 0;
+    margin: 28px 0;
 
 }
 
@@ -70,6 +70,36 @@ footer {
     text-align: left;
 }
 
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    padding: 12px 28;
+    border: none;
+    border-radius: 6px;
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all ease 0.25s;
+}
+
+button:hover {
+    scale: 1.1;
+}
+
+.follow-btn {
+    background-color: red;
+    color: whitesmoke;
+}
+
+.following-btn {
+    background-color: white;
+    border: 1px solid red;
+    color: red;
+}
+
 .menu-icon {
     height: 60px;
     cursor: pointer;
@@ -102,9 +132,9 @@ footer {
     transition: all ease 0.25s;
 }
 
-.like-icon:hover,
-.comment-icon:hover,
-.share-icon:hover {
+.like-icon:hover, .like-icon:focus,
+.comment-icon:hover, .comment-icon:focus,
+.share-icon:hover, .share-icon:focus {
     cursor: pointer;
     scale: 1.25;
 
@@ -112,4 +142,39 @@ footer {
 
 .like-number, .username {
     font-weight: 900;
+}
+
+.txt-input {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.txt-input.is-flex {
+    display: flex;
+}
+
+.input {
+    width: 90%;
+    font-size: 2rem;
+    padding: 16px 24px;
+    outline: none;
+    border: 1px solid blue;
+    border-radius: 6px;
+}
+
+.send-icon {
+    width: 8%;
+    background-color: blue;
+    border-radius: 8px;
+    padding: 6px;
+    cursor: pointer;
+    transition: all ease 0.25s;
+}
+
+.send-icon:hover, .send-icon:focus {
+    scale: 1.1;
+    background-color: green;
 }
